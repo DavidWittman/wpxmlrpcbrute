@@ -92,15 +92,18 @@ def main():
     desc = "Brute force WordPress sites vulnerable to XML-RPC amplification."
     parser = argparse.ArgumentParser(description=desc)
 
-    # TODO(dw): Add help
-    parser.add_argument('-c', '--count', type=int, default=100)
-    parser.add_argument('-t', '--threads', type=int, default=4)
-    parser.add_argument('-u', '--user', default="admin")
+    parser.add_argument('-c', '--count', type=int, default=100,
+        help="Number of passwords to send in each request. Default: 100")
+    parser.add_argument('-t', '--threads', type=int, default=4,
+        help="Number of threads to spawn. Default: 4")
+    parser.add_argument('-u', '--user', default="admin",
+        help="WordPress username to brute force. Default: admin")
     # TODO: This doesn't actually do anything
     #parser.add_argument('-a', '--user-agent', default="")
-    parser.add_argument('-l', '--level', type=int, default=1)
-    parser.add_argument('url')
-    parser.add_argument('wordlist')
+    parser.add_argument('-l', '--level', type=int, default=1,
+        help="Log level (1-5). 1 = debug, 5 = critical. Default: 1")
+    parser.add_argument('url', help="URL of WordPress site to brute force")
+    parser.add_argument('wordlist', help="Path of the password list to use")
 
     args = parser.parse_args()
 

@@ -5,20 +5,23 @@ This script uses a vulnerability discovered in the XML-RPC implementation in Wor
 ## Usage
 
 ```
-usage: wpxmlrpcbrute.py [-h] [-c COUNT] [-t THREADS] [-u USER] [-a USER_AGENT]
-                        [-l LEVEL]
+usage: wpxmlrpcbrute.py [-h] [-c COUNT] [-t THREADS] [-u USER] [-l LEVEL]
                         url wordlist
 
 positional arguments:
-  url
-  wordlist
+  url                   URL of WordPress site to brute force
+  wordlist              Path of the password list to use
 
 optional arguments:
   -h, --help            show this help message and exit
   -c COUNT, --count COUNT
+                        Number of passwords to send in each request. Default:
+                        100
   -t THREADS, --threads THREADS
-  -u USER, --user USER
+                        Number of threads to spawn. Default: 4
+  -u USER, --user USER  WordPress username to brute force. Default: admin
   -l LEVEL, --level LEVEL
+                        Log level (1-5). 1 = debug, 5 = critical. Default: 1
 ```
 
 ### Examples
